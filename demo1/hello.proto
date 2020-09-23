@@ -2,15 +2,24 @@ syntax = "proto3";
 
 package hello_proto;
 
+import "google"
+
 service Hello {
-  rpc sayHello (HelloReq) returns (HelloResp) {};
+  rpc sayHello (HelloRequest) returns (HelloResponse) {
+    options(google.api.http) = {
+      post: "/hello/world"
+    }
+  };
+}
+service World {
+  
 }
 
-message HelloReq {
+message HelloRequest {
   string name = 1;
   int32 age = 2;
 }
 
-message HelloResp {
+message HelloResponse {
   string message = 1;
 }

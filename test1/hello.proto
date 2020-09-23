@@ -3,7 +3,14 @@ syntax = "proto3";
 package hello_proto;
 
 service Hello {
-  rpc sayHello (HelloRequest) returns (HelloResponse) {};
+  rpc sayHello (HelloRequest) returns (HelloResponse) {
+    options(google.api.http) = {
+      post: "/hello/world"
+    }
+  };
+}
+service World {
+  
 }
 
 message HelloRequest {

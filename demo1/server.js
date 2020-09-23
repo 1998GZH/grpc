@@ -17,6 +17,7 @@ server.addService(hello_proto.Hello.service, {
   // 实现方法
   sayHello:(call, callback) => {
     try {
+      console.log(call);
       let {name, age} = call.request;
       callback && callback(null, {message: `我是${name}, 我${age}岁！`});
     } catch (err) {
@@ -24,6 +25,6 @@ server.addService(hello_proto.Hello.service, {
     }
   }
 });
-server.bind('127.0.0.1:6666', grpc.ServerCredentials.createInsecure());
+server.bind('127.0.0.1:9999', grpc.ServerCredentials.createInsecure());
 server.start();
 console.log("server start: ...");
