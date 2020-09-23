@@ -24,7 +24,7 @@ server.addService(hello_proto.Hello.service, {
       console.error("服务器出错了", err);
     }
   }
-});
+})
 server.bind('127.0.0.1:9999', grpc.ServerCredentials.createInsecure());
 server.start();
 console.log("server start: ...");
